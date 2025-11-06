@@ -1,7 +1,9 @@
 package kr.ac.kumoh.s20220300.w25w08_thymeleaf.repository
 
 import kr.ac.kumoh.s20220300.w25w08_thymeleaf.model.Song
+import org.springframework.stereotype.Repository
 
+@Repository
 class SongRepository {
     private val songs = listOf(
         Song(1, "Golden", "HUNTR/X"),
