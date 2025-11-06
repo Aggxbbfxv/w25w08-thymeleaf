@@ -1,14 +1,17 @@
 package kr.ac.kumoh.s20220300.w25w08_thymeleaf.controller
 
+import kr.ac.kumoh.s20220300.w25w08_thymeleaf.service.SongService
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 
 @Controller
-class SongController {
+class SongController (
+    private val service: SongService
+){
     @GetMapping("/songs/random")
     fun getRandomSong(model: Model): String {
-        model.addAttribute("SongTitle", "Soda pop")
+        model.addAttribute("SongTitle", service.getRandomSong()?.title ?: "노래 없음")
         return "random"
     }
 }
